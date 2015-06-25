@@ -1,10 +1,47 @@
 ---
-description: "Returns Plant Ontology term search web service results for a given term or term fragment, using the generic type of Araport web service"
-main_module: main.py
 name: po_term_search
+description: "Returns Plant Ontology term search results for a given term or term fragment"
+main_module: main.py
+version: 0.3.0
+icon: garland_logo.gif
+tags:
+    - 'ontology'
+    - 'synonym'
+
 type: generic
 url: "http://www.plantontology.org/"
-version: 0.2
 whitelist:
   - www.plantontology.org
   - palea.cgrb.oregonstate.edu
+  - iplant.plantontology.org
+
+validate_request: true
+endpoints:
+    /search:
+        parameters:
+            - name: term
+              description: Search term
+              type: string
+              required: true
+              default: 'inflorescence'
+
+authors:
+    - name: Justin Preece
+      email: preecej@science.oregonstate.edu
+      sponsor_organization: Oregon State University
+      sponsor_uri: http://oregonstate.edu/
+    - name: Matt Vaughn
+      email: vaughn@tacc.utexas.edu
+      sponsor_organization: Texas Advanced Computing Center
+      sponsor_uri: http://www.tacc.utexas.edu/
+
+sources:
+    - title: Plant Ontology Consortium Web Services
+      description: The Plant Ontology is a controlled vocabulary (ontology) that describes plant anatomy and morphology and stages of development for all plants.
+      sponsor_organization: Oregon State University
+      sponsor_uri: http://oregonstate.edu/
+      provider_name: Pankaj Jaiswal
+      provider_email: jaiswalp@science.oregonstate.edu
+      license: Creative Commons Attribution 4.0 International License
+      uri: http://www.plantontology.org/node/10
+
